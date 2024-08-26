@@ -87,7 +87,7 @@ function show_home(products) {
   `
     }
     container.innerHTML = a;
-    total(bill)
+
 }
 
 
