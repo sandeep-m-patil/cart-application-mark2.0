@@ -103,11 +103,10 @@ function addtoCart(i) {
         'title': `${products[i].title}`,
         'price': `${products[i].price}`
     }) ;
-    bill += parseInt(cart[i].price);
+    bill += parseInt(products[i].price);
 
 console.table(cart)
 
-total(bill)
 
 
 
@@ -155,6 +154,8 @@ function show_cart() {
         container.innerHTML = b;
 
     }
+
+total(bill)
 
 
 
