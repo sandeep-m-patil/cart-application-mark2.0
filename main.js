@@ -67,6 +67,8 @@ let products = [
 
 
 
+let bill = 0;
+
 
 function show_home(products) {
     let a = ``;
@@ -85,6 +87,7 @@ function show_home(products) {
   `
     }
     container.innerHTML = a;
+    total(bill)
 }
 
 
@@ -93,28 +96,43 @@ show_home(products);
 console.table(products)
 
 cart = []
-c = 0;
 function addtoCart(i) {
     alert(products[i].title + " Added to Cart")
-    cart[c] = {
+    cart.push({
         'img': `${products[i].img}`,
         'title': `${products[i].title}`,
         'price': `${products[i].price}`
-    }
+    }) ;
+    bill += parseInt(cart[i].price);
 
-    c += 1;
+console.table(cart)
+
+total(bill)
+
 
 
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 function show_cart() {
+
     if (cart.length == 0) {
         container.innerHTML = "Cart is Empty";
     }
     else {
         let b = ``
-        let bill = 0;
-
         for (let i = 0; i < cart.length; i++) {
             b += `<div class="card-cart">
     <img width="10%" src=${cart[i].img} alt="Denim Jeans">
@@ -125,17 +143,27 @@ function show_cart() {
   
     </div>
   </div>    
+
+  
     `
 
-            bill += parseInt(cart[i].price);
+
+
+         
         }
 
         container.innerHTML = b;
 
-
-document.querySelector('.bill').innerHTML ="Total Bill Amount is : "+  bill;
-
     }
+
+
+
+
+}
+
+function total(bill){
+
+    document.querySelector('.bill').innerHTML ="Total Bill Amount is : "+  bill;
 
 
 }
@@ -143,13 +171,20 @@ document.querySelector('.bill').innerHTML ="Total Bill Amount is : "+  bill;
 
 
 function rfromCart(i) {
+   
+
+    
+let index = cart.indexOf(cart[i]);
+bill -= parseInt(cart[index].price);
+cart.splice(index, 1)
+
+show_cart()
+total(bill)
+
+
+
 
 }
-
-
-
-
-
 
 
 function logout() {
