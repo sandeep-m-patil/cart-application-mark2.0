@@ -1,4 +1,25 @@
+<<<<<<< HEAD
         
+=======
+console.log("hello world!")
+
+function login_des(event) {
+    event.preventDefault();
+
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+
+    if (username == "sandeep" && password == "123") {
+        window.location.href = "catalog.html";
+    }
+    else {
+        document.getElementById("login-info").innerText = "Username or Password Mismatched"
+    }
+}
+
+let container = document.querySelector('.container');
+let cartainer = document.querySelector('.cart');
+>>>>>>> 9379f67e0103dcd8510dc25885122b0b2927d42b
 
 let products = [
     {
@@ -71,16 +92,39 @@ function show_home() {
   </div>
   `
     }
+<<<<<<< HEAD
     document.querySelector('.products').innerHTML = a;
     
 }
 
 
 show_home()
+=======
+    container.innerHTML = a;
+}
+
+
+show_home(products);
+
+console.table(products)
+
+cart = []
+function addtoCart(i) {
+    alert(products[i].title + " Added to Cart")
+    cart.push({
+        'img': `${products[i].img}`,
+        'title': `${products[i].title}`,
+        'price': `${products[i].price}`
+    }) ;
+    bill += parseInt(products[i].price);
+
+console.table(cart)
+>>>>>>> 9379f67e0103dcd8510dc25885122b0b2927d42b
 
 
 
 
+<<<<<<< HEAD
 let bill = 0;
 
 
@@ -104,6 +148,71 @@ function addtoCart(i){
       
     console.table(cartlist)
     total(bill)
+=======
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function show_cart() {
+
+    if (cart.length == 0) {
+        container.innerHTML = "Cart is Empty";
+    }
+    else {
+        let b = ``
+        for (let i = 0; i < cart.length; i++) {
+            b += `<div class="card-cart">
+    <img width="10%" src=${cart[i].img} alt="Denim Jeans">
+    <div class="card-info">
+      <p class="ptext">${cart[i].title}</p>
+      <h2 class="ptext">₹${cart[i].price}</h2>
+      <p class="ptext"><button class="btn" onclick="rfromCart(${i})">Remove</button></p>
+  
+    </div>
+  </div>    
+
+  
+    `
+
+
+
+         
+        }
+
+        container.innerHTML = b;
+
+    }
+
+total(bill)
+
+
+
+
+}
+
+function total(bill){
+
+    document.querySelector('.bill').innerHTML ="Total Bill Amount is : "+  bill;
+
+
+}
+
+
+
+function rfromCart(i) {
+   
+>>>>>>> 9379f67e0103dcd8510dc25885122b0b2927d42b
 
     
     localStorage.setItem("data",JSON.stringify(cartlist))
