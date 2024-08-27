@@ -1,22 +1,4 @@
-console.log("hello world!")
-
-
-function login_des(event) {
-    event.preventDefault();
-
-    let username = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
-
-    if (username == "sandeep" && password == "123") {
-        window.location.href = "catalog.html";
-    }
-    else {
-        document.getElementById("login-info").innerText = "Username or Password Mismatched"
-    }
-}
-
-let container = document.querySelector('.container');
-let cartainer = document.querySelector('.cart');
+        
 
 let products = [
     {
@@ -66,11 +48,14 @@ let products = [
 ];
 
 
+function show_home() {
+    document.querySelector('.carts').style.display="none";
+    document.querySelector('.bill').style.display="none";
 
-let bill = 0;
+
+    document.querySelector('.products').style.display="flex";
 
 
-function show_home(products) {
     let a = ``;
     for (let i = 0; i < products.length; i++) {
 
@@ -86,109 +71,121 @@ function show_home(products) {
   </div>
   `
     }
-    container.innerHTML = a;
+    document.querySelector('.products').innerHTML = a;
+    
+}
+
+
+show_home()
+
+
+
+
+let bill = 0;
+
+
+let cartlist = JSON.parse(localStorage.getItem("data")) || []
+
+
+function addtoCart(i){
+
+
+
+    cartlist.push({
+        'id':i,
+        'img':`${products[i].img}`,
+        'name':`${products[i].title}`,
+        'price':products[i].price
+    
+    })
+    bill+=products[i].price;
+    localStorage.setItem("total",bill);
+
+      
+    console.table(cartlist)
     total(bill)
-}
-
-
-show_home(products);
-
-console.table(products)
-
-cart = []
-function addtoCart(i) {
-    alert(products[i].title + " Added to Cart")
-    cart.push({
-        'img': `${products[i].img}`,
-        'title': `${products[i].title}`,
-        'price': `${products[i].price}`
-    }) ;
-    bill += parseInt(cart[i].price);
-
-console.table(cart)
-
-total(bill)
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function show_cart() {
-
-    if (cart.length == 0) {
-        container.innerHTML = "Cart is Empty";
-    }
-    else {
-        let b = ``
-        for (let i = 0; i < cart.length; i++) {
-            b += `<div class="card-cart">
-    <img width="10%" src=${cart[i].img} alt="Denim Jeans">
-    <div class="card-info">
-      <p class="ptext">${cart[i].title}</p>
-      <h2 class="ptext">₹${cart[i].price}</h2>
-      <p class="ptext"><button class="btn" onclick="rfromCart(${i})">Remove</button></p>
-  
-    </div>
-  </div>    
-
-  
-    `
-
-
-
-         
-        }
-
-        container.innerHTML = b;
-
-    }
-
-
-
-
-}
-
-function total(bill){
-
-    document.querySelector('.bill').innerHTML ="Total Bill Amount is : "+  bill;
-
-
-}
-
-
-
-function rfromCart(i) {
-   
 
     
-let index = cart.indexOf(cart[i]);
-bill -= parseInt(cart[index].price);
-cart.splice(index, 1)
+    localStorage.setItem("data",JSON.stringify(cartlist))
 
-show_cart()
-total(bill)
+    
+}
+    
+    
 
 
+console.log(localStorage.getItem("data"))
+
+
+function show_cart(){
+    document.querySelector('.bill').style.display="block";
+
+        
+    let store = JSON.parse(localStorage.getItem("data"));
+
+
+ 
+
+ 
+
+    document.querySelector('.products').style.display="none";
+    document.querySelector('.carts').style.display="flex";
+
+
+
+    
+    let b = ``;
+    
+    for(let i=0;i<store.length;i++){
+        b+=`
+      <div class="card-cart">
+        <img width="10%" src=${store[i].img} alt="Denim Jeans">
+        <div class="card-info">
+          <p class="ptext">${store[i].name}</p>
+          <h2 class="ptext">₹${store[i].price}</h2>
+          <p class="ptext"><button class="btn" onclick="rfromCart(${i})">Remove</button></p>
+      
+        </div>
+      </div> 
+        `
+    }
+    
+    document.querySelector(".carts").innerHTML=b;
 
 
 }
 
 
-function logout() {
-    alert("Logging Out");
-    window.location.href = "index.html";
+
+
+
+
+
+
+function rfromCart(i){
+    let index = cartlist.indexOf(cartlist[i]);
+    bill-=cartlist[i].price;
+    localStorage.setItem("total",bill);
+
+
+    cartlist.splice(index,1)
+    
+    localStorage.setItem("data", JSON.stringify(cartlist))
+     show_cart()
+
+     total()
+}
+total()
+
+function total() {
+
+   
+        let bill=localStorage.getItem("total")
+        console.log(localStorage.getItem("total"))
+    
+        document.querySelector('.bill').innerHTML = "Total Bill Amount is : " + bill;
+    
+    
+   
 
 }

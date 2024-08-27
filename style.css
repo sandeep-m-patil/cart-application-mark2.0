@@ -1,14 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-body{
-    margin: 0px;
-padding: 0px;
-    
-        font-family: "Poppins", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-      
-}
+
 
 body{
     margin: 0px;
@@ -87,6 +79,8 @@ margin:0px!important;
 
 
 
+
+
 nav{
     display: flex;
     font-size: larger;
@@ -131,56 +125,14 @@ margin: 0px 24px;
 
 }
 
-
-
-
-
-
-
-
-
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 17rem;
-    height: 23rem;
-    margin: 6px;
+.bill{
     text-align: center;
-    font-family: arial;
-    padding: 12px;
-  }
-
-  .card > img {
-    padding: 10px;
-    float: center;
-    width:  auto;
-    height:8rem;
-    background-size: cover;
-  }
-
-  .price {
-    color: grey;
-    font-size: 24px;
-  }
-
-  .card button {
-    border: none;
-    outline: 0;
-    padding: 12px;
-    background-color: #ffd814;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
-  }
-
-  .card button:hover {
-    background-color: #f9d108;
-  }
+  
+}
 
 
 
-
-  .container{
+.carts{
 
     display: flex;
     flex-direction: row;
@@ -248,12 +200,14 @@ margin: 0px 32px;
 
 
   
-footer{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 12px;
-  background-color: rgb(16, 21, 78);
-  color: white;
 
-}
+  
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    background-color: rgb(16, 21, 78);
+    color: white;
+  
+  }
