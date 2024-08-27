@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+  <style>
+    .body{
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .products{
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+    }
+  
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 17rem;
+    height: 23rem;
+    margin: 6px;
+    text-align: center;
+    font-family: arial;
+    padding: 12px;
+  }
+
+  .card > img {
+    padding: 10px;
+    float: center;
+    width:  auto;
+    height:8rem;
+    background-size: cover;
+  }
+
+  .price {
+    color: grey;
+    font-size: 24px;
+  }
+
+  .card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    background-color: #ffd814;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+
+  .card button:hover {
+    background-color: #f9d108;
+  }
+
+
+
+
+
+  </style>
+</head>
+<body>
+
+    <nav>
+        <div class="head">
+            <img class="h-img" width="70px" src="https://www.kindpng.com/picc/m/193-1936884_ecommerce-websites-ecommerce-icon-hd-png-download.png" alt="">
+            <span class="h-head">FlipZon</span>
+        </div>
+        <div class="menu">
+            <ul>
+                <a  href="#">
+                    <li onclick="show_home()">Home</li>
+                </a>
+                <li><a onclick="show_cart()" >Cart</a></li>
+                <li><a href="#" onclick="logout()">LogOut</a></li>
+            </ul>
+        </div>
+
+    </nav>
+    
+
+    <div class="products"></div>
+    <div class="carts"></div>
+    <div>
+        <h2 class="bill"></h2>
+    </div>
+    
+    <footer>
+        <div>
+            copywrite with @sandeep-m-patil
+        </div>
+    </footer>
+
+
+
+
+
+
+
+<script src="main.js"></script>
+</body>
+</html>

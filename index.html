@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlipZon</title>
+    <style>
+        .header{
+            background-color: blue;
+            color: white;
+            padding: 8px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+        }
+
+        .login-form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input , .login-btn{
+            margin: 10px;
+            height: 30px;
+            width: 250px;
+        }
+        
+        
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="heading">Login</div>
+    </div>
+
+    <div class="login-page">
+        <form class="login-form">
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button class="login-btn" onclick="login_des(event)">Login</button>
+        </form>
+
+        <p id="login-info"></p>
+    </div>
+
+    <script>
+
+function login_des(event) {
+    event.preventDefault();
+
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+
+    if (username == "sandeep" && password == "123") {
+        window.location.href = "home.html";
+    }
+    else {
+        document.getElementById("login-info").innerText = "Username or Password Mismatched"
+    }
+}
+    </script>
+</body>
+</html>
